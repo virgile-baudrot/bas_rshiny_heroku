@@ -1,4 +1,6 @@
 library(shiny)
+library(ggplot2)
+library(tktdjl2r)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
@@ -13,11 +15,11 @@ ui <- fluidPage(
     sidebarPanel(
 
       # Input: Slider for the number of bins ----
-      sliderInput(inputId = "bins",
-                  label = "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      sliderInput(inputId = "nbrTimePts",
+                  label = "Number of time points:",
+                  min = 5,
+                  max = 100,
+                  value = 10)
 
     ),
 
@@ -25,7 +27,7 @@ ui <- fluidPage(
     mainPanel(
 
       # Output: Histogram ----
-      plotOutput(outputId = "distPlot")
+      plotOutput(outputId = "Plot")
 
     )
   )
